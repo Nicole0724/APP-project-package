@@ -1,0 +1,95 @@
+/*
+use @import  base.scss file
+and file's may not have suffix
+*/
+/* % use demo */
+.nicole-clearfix {
+  *zoom: 1; }
+  .nicole-clearfix:before, .nicole-clearfix:after {
+    content: "";
+    display: table;
+    font: 0/0 a; }
+  .nicole-clearfix:after {
+    clear: both; }
+
+body {
+  /*font-size: $baseFontSize;*/ }
+
+.nicole-fontSize-12 {
+  font-size: 1.2rem; }
+
+.nicole-fontSize-14 {
+  font-size: 1.4rem; }
+
+.nicole-fontSize-16 {
+  font-size: 1.6rem; }
+
+.nicole-fontSize-18 {
+  font-size: 1.8rem; }
+
+.nicole-fontSize-20 {
+  font-size: 2rem; }
+
+.nicole-fontSize-22 {
+  font-size: 2.2rem; }
+
+.nicole-fontSize-24 {
+  font-size: 2.4rem; }
+
+.nicole-color-f00 {
+  color: #f00; }
+
+.nicole-color-000 {
+  color: #000; }
+
+.nicole-color-fff {
+  color: #fff; }
+
+/*@each use demo:border setting*/
+.nicole-color-ccc {
+  border: 1px, #ccc, solid; }
+
+.nicole-color-f00 {
+  border: 2px, #f00, dotted; }
+
+.nicole-a-black {
+  background-image: url("/images/puma.png");
+  border: 2px solid black;
+  cursor: default; }
+
+.nicole-a-blue {
+  background-image: url("/images/sea-slug.png");
+  border: 2px solid blue;
+  cursor: pointer; }
+
+.nicole-a-white {
+  background-image: url("/images/egret.png");
+  border: 2px solid white;
+  cursor: move; }
+
+.div-width1, .div-width2, .div-width3, .div-width4, .div-width5, .div-width6, .div-width7, .div-width8, .div-width9, .div-width10, .div-width11, .div-width12, .span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11 {
+  float: left;
+  margin-left: 5em;
+  margin-right: 5em; }
+
+/*through have $gridColumns:12*/
+/*to not have $gridColumns:12*/
+/*clearfix use demo*/
+.clearfix {
+  zoom: 1; }
+  .clearfix:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.clearn {
+  clear: both; }
+
+/*a link use */
+a {
+  color: #08c;
+  font-size: 13px; }
+  a:hover {
+    color: #333; }
+
+/*# sourceMappingURL=style_globle.css.map */

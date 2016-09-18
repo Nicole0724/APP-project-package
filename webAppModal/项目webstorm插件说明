@@ -1,0 +1,39 @@
+sass或者scss编译为css时，webstorm配置如下：（http://www.cnblogs.com/phoenix-smile/p/5063216.html）
+如果没有安装ruby则先安装，下载地址：http://rubyinstaller.org/downloads
+安装注意：
+1.安装ruby，此步骤只需留意勾选Add Ruby executables to your PATH这个选项，它将添加环境变量，不然以后使用编译软件的时候会提示找不到ruby环境，影响Webstorm 自动编译。
+2.安装后，在开始菜单找到Start Command Prompt with Ruby
+3.安装scss   命令为：gem install sass
+4.安装Autoprefixer，是不是全局安装（-g）那就看你自己的环境了   命令为：npm install autoprefixer -g
+5.安装postcss-cli，Autoprefixer其实是postcss的插件        命令为：npm install postcss-cli -g
+6.配置webstorm-autoprefixer  打开Webstorm设置，File  -> settings  -> Tools -> File Watcher ;点击新增按钮
+7.修改Arguments，默认输出到scss文件同目录，建议修改到其他位置，（7.1或7.2任选）
+  7.1修改到上一级的stylesheets目录下
+    修改前--no-cache --update $FileName$:$FileNameWithoutExtension$.css
+    修改后--no-cache --update $FileName$:$FileParentDir$\stylesheets\$FileNameWithoutExtension$.css
+  7.2修改到指定css目录下，从项目根目录开始找
+    修改前 Arguments:--no-cache --update $FileName$:$FileNameWithoutExtension$.css
+          Output paths to refresh:$FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map
+
+    修改后（本项目） Arguments:--style expanded --no-cache --update $FileName$:$ProjectFileDir$/webAppModal/assets/style/css/$FileNameWithoutExtension$.css
+          Output paths to refresh:$ProjectFileDir$/webAppModal/assets/style/css/$FileNameWithoutExtension$.css:$ProjectFileDir$/webAppModal/assets/style/css/$FileNameWithoutExtension$.css.map
+
+8.配置autoprefixer
+
+File->Tools->External Tools 点击add
+
+Name:Autoprefixer
+
+description:Autoprefixer
+
+Program:C:\Program Files\nodejs\node_global\postcss.cmd
+
+Parameters:-u autoprefixer -o $FileDir$/$FileName$  $FileDir$/$FileName$
+
+Working directory:$ProjectFileDir$
+
+其余默认不变
+
+
+
+

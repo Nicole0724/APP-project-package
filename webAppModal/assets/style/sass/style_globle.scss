@@ -1,0 +1,105 @@
+/*
+use @import  base.scss file
+and file's may not have suffix
+*/
+@import 'base_font';
+@import 'base_color.scss';
+@import 'base_pattern.scss';
+
+//company-name use for company project
+$company-name: nicole;
+
+body {
+  /*font-size: $baseFontSize;*/
+}
+
+//@each use demo:font-size
+$fontSize: ('12', 1.2), ('14', 1.4), ('16', 1.6), ('18', 1.8), ('20', 2.0), ('22', 2.2), ('24', 2.4);
+@each $font-size in $fontSize {
+  .#{$company-name}-fontSize-#{nth($font-size,1)} {
+    font-size: #{nth($font-size,2)}rem;
+  }
+}
+
+//@each use demo:color
+$color: 'f00', '000', 'fff';
+@each $text-color in $color {
+  .#{$company-name}-color-#{$text-color} {
+    color: #{'#'}#{$text-color};
+  }
+}
+
+/*@each use demo:border setting*/
+$border: (1, 'ccc', solid), (2, 'f00', dotted);
+@each $border-num, $border-color, $type in $border {
+  .#{$company-name}-color-#{$border-color} {
+    border: $border-num#{'px'}, #{'#'}#{$border-color}, $type;
+  }
+}
+
+//@each-->Multiple field list data loop
+$animal-data: (puma, black, default), (sea-slug, blue, pointer), (egret, white, move);
+@each $animal, $color, $cursor in $animal-data {
+  .#{$company-name}-a-#{$color} {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+
+// class span1-$gridColumns
+// Class span loop output, through the variable $gridSpanSwitch to control whether the output
+//-----------------------------------------------------
+$gridColumns: 12 !default;
+$gridcolumnWidth: 60em !default;
+$gridGutter: 20em !default;
+
+%span-base {
+  float: left;
+  margin-left: $gridGutter / 4;
+  margin-right: $gridGutter / 4;
+}
+
+/*through have $gridColumns:12*/
+@for $i from 1 through $gridColumns {
+  .div-width#{$i} {
+    @extend %span-base;
+    //width: ($gridcolumnWidth + $gridGutter) * $i - $gridGutter;
+  }
+}
+
+/*to not have $gridColumns:12*/
+@for $i from 1 to $gridColumns {
+  .span#{$i} {
+    @extend %span-base;
+    //width: ($gridcolumnWidth + $gridGutter) * $i - $gridGutter;
+  }
+}
+
+/*clearfix use demo*/
+.#{$company-name}-clearfix {
+  @extend %clearfix
+}
+
+//------
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  zoom: 1;
+}
+
+.clearn {
+  clear: both;
+}
+
+/*a link use */
+a {
+  color: nth($linkColor, 1);
+  font-size: $baseFontSize+1;
+  &:hover {
+    color: nth($linkColor, 2);
+  }
+}

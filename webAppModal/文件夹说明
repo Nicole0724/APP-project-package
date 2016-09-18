@@ -1,0 +1,14 @@
+项目包文件说明
+
+css文件夹：
+
+lib存放静态css库
+plug存放静态css插件
+
+
+js文件夹：
+lib存放静态js库
+plug存放静态js插件
+
+
+
